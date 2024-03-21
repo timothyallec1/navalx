@@ -1,12 +1,4 @@
-##streamlit run /workspaces/navalx/streamlit_app.py
-from collections import defaultdict
-from pathlib import Path
-import sqlite3
-
 import streamlit as st
-import altair as alt
-import pandas as pd
-
 
 # Set the title and favicon that appear in the Browser's tab bar.
 st.set_page_config(
@@ -14,6 +6,13 @@ st.set_page_config(
     page_icon=':shopping_bags:', # This is an emoji shortcode. Could be a URL too.
 )
 
+# Add some content to your Streamlit app
+st.title('CAMiLL - NavalX AI Bot')
 
+# You can add other components like text, sliders, buttons, etc. here
+# For example:
+st.write('This bot answers questions about NavalX and its tech bridges.')
 
- 
+# Finally, run your Streamlit app
+if __name__ == "__main__":
+    streamlit_app()
