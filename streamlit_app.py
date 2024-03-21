@@ -1,3 +1,4 @@
+##streamlit run /workspaces/navalx/streamlit_app.py
 from collections import defaultdict
 from pathlib import Path
 import sqlite3
@@ -14,38 +15,5 @@ st.set_page_config(
 )
 
 
-# -----------------------------------------------------------------------------
-# Declare some useful functions.
-
-def connect_db():
-    '''Connects to the sqlite database.'''
-
-    DB_FILENAME = Path(__file__).parent/'inventory.db'
-    db_already_exists = DB_FILENAME.exists()
-
-    conn = sqlite3.connect(DB_FILENAME)
-    db_was_just_created = not db_already_exists
-
-    return conn, db_was_just_created
-
-
-def initialize_data(conn):
-    '''Initializes the inventory table with some data.'''
-    cursor = conn.cursor()
-
-    cursor.execute(
-        '''
-        CREATE TABLE IF NOT EXISTS inventory (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            item_name TEXT,
-            price REAL,
-            units_sold INTEGER,
-            units_left INTEGER,
-            cost_price REAL,
-            reorder_point INTEGER,
-            description TEXT
-        )
-        '''
-    )
 
  
